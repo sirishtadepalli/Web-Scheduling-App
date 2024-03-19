@@ -1,0 +1,57 @@
+<!-- Code from: templates/register.html -->
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Register for a University Astronomy Account</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h1 class="center-heading">Register for an Account</h1>
+
+<!-- Jinja2 sorcery to display flash messages -->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+    <form method="post">
+        <table>
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td><input name="username" id="username" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" name="password" id="password" required></td>
+            </tr>
+            <tr>
+                <td><label for="confirm_password">Confirm Password</label></td>
+                <td><input type="password" name="confirm_password" id="confirm_password" required></td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <p>Password must meet the following criteria:</p>
+                    <ul>
+                        <li>At least 12 characters long</li>
+                        <li>Contains at least one uppercase letter</li>
+                        <li>Contains at least one lowercase letter</li>
+                        <li>Contains at least one digit</li>
+                        <li>Contains at least one special character</li>
+                    </ul>
+                    (Usernames and Passwords are CaSe SeNsItIvE!)
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><input type="submit" value="Register"></td>
+            </tr>
+        </table>
+    </form>
+    <!-- Just in case a mistake was made and return to login is desired -->
+    <p>Already have an account? <a href="{{ url_for('login') }}">Return to Login</a></p>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Astronomy Website</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        /* Styles for the fancy image container */
+        .image-container {
+            position: fixed;
+            bottom: 10px;
+            right: 50px;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+        /* Styles for the rotating images */
+        .image-container img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .image-container img:first-child {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Jinja2 sorcery to display flash messages -->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+    {% if reg_message %}
+    <div class="flash-message">
+        {{ reg_message }}
+    </div>
+    {% endif %}
+
+    <h1 class="center-heading">Welcome to the Metro U Astronomy Portal</h1>
+
+<br><br>
+    <p>Welcome to the Metro University Observatory and Planetarium interface. Here, post grads
+        and professors may sign up for a variety of activities. See below for links to each
+        department.</p>
+    <h2>Our Services</h2>
+    <p>If you have a research plan, and you're working on your thesis, sign up for time on our
+        large-aperture telescope.</p>
+    <p>If you have data to process post-gathering, and your thesis is registered with the
+        college, you can sign up for time on our Cray3000 supercomputer! Be sure you have your
+        funding account number!</p>
+    <p>Finally, you can help budding young astronomers find their calling, or recruit young STEM
+    students to the field! Take the controls of the largest Planetarium in the Generic
+        Region! People skills and patience are a must!</p>
+    <ul>
+        <li><a href="/telescope_time">Sign up for Telescope Time</a></li>
+        <li><a href="/supercomputer_time">Request Supercomputer Time</a></li>
+        <li><a href="/planetarium">Volunteer for the Planetarium</a></li>
+    </ul>
+    <h3>Our Friends</h3>
+    <p>Some great places online we'd love to share with you--</p>
+    <ol>
+        <li><a href="https://www.jwst.nasa.gov/">The James Webb Telescope</a></li>
+        <li><a href="https://www.astronomycast.com/">The Astronomy Cast Podcast</a></li>
+        <li><a href="https://apod.nasa.gov/apod/astropix.html">Astronomy Pic of the Day</a></li>
+    </ol>
+
+    <div class="image-container">
+        <img src="/static/images/image1.jpg" alt="Image 1">
+        <img src="/static/images/image2.jpg" alt="Image 2">
+        <img src="/static/images/image3.jpg" alt="Image 3">
+        <img src="/static/images/image4.jpg" alt="Image 4">
+        <img src="/static/images/image5.jpg" alt="Image 5">
+    </div>
+
+    <script>
+        // JavaScript to rotate images
+        const images = document.querySelectorAll('.image-container img');
+        let currentImageIndex = 0;
+
+        function rotateImages() {
+            images[currentImageIndex].style.opacity = 0;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].style.opacity = 1;
+        }
+
+        setInterval(rotateImages, 3000); // Change image every 3 seconds
+    </script>
+
+    <div class="time-strip">
+        <!-- Display current date and time with seconds truncated -->
+        <p>Current Date and Time: {{ current_time.strftime('%Y-%m-%d %H:%M') }}</p>
+    </div>
+    <br><br>
+
+    <br>
+    <div class="logout-link">
+    <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <div class="logout-link"><p>Password reset is available <a href="{{ url_for('update_password')
+            }}">Here.</a></p>
+    </div>
+
+</body>
+</html>

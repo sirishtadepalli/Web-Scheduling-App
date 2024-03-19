@@ -1,0 +1,205 @@
+/* John Leckie, SDEV 300, 22 Sep '23
+This is the stylesheet for the astronomy website. It controls the layout and appearance of elements
+common to multiple pages.
+ */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0 50px;
+    padding: 0;
+    background-image: url('images/6t3m7cg78dha1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 1.0);
+}
+
+title {
+    text-align: center;
+}
+
+h1 {
+    color: lightskyblue; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal and vertical shadow offsets, blur
+                                                    radius, and shadow color */
+}
+
+
+h1.center-heading {
+    text-align: center;
+}
+
+h2 {
+    color: khaki;
+}
+
+h3 {
+    color: aquamarine;
+}
+
+/* Style the list containers for the background to go in */
+ul, ol {
+  margin: 0 auto;
+  padding-left: 50px;
+  color: white;
+}
+
+/* List items */
+li {
+  position: relative;
+}
+
+/* Element for the background */
+li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.2); /* Adjust the background color and transparency */
+  z-index: -1; /* Place it behind the content */
+}
+
+/* Style the links within the list items */
+li a {
+  text-decoration: none;
+  color: lightsalmon /* Your link color */
+}
+
+/* Style the text within the list items (optional) */
+li span {
+  color: #333; /* Text color */
+}
+
+
+p {
+    margin-top: 10px;
+    margin-bottom: auto;
+    margin-left: 10px;
+    margin-right: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for the form container */
+form {
+    background-color: darkslategray;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+    /* margin-left: -100px; */
+    margin-top: 60px;
+    z-index: 9999;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+    max-width: 300px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigation link styles */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the time strip */
+.time-strip {
+    background-color: dimgrey;
+    height: 50px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the current time */
+.current-time {
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #333; /* Choose a text color that stands out on the background */
+}
+
+/* CSS for the dedicated images on the 3 sub-pages */
+.page-image {
+    position: absolute;
+    top: 30%;
+    right: 50px;
+    transform: translateY(50%);
+    width: 400px;
+    height: 400px;
+    margin: 50px;
+    z-index: 1;
+}
+
+/* Style for flash messages */
+.flash-messages {
+    width: 47.5ch;
+    /* display: none; /* Initially hide the flash messages */
+    /* background-color: #333333; /* Background color for the flash messages */
+    color: white; /* Text color for the flash messages */
+    text-align: center; /* Center-align the text inside the flash messages */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Add some padding to the flash messages */
+    position: fixed; /* Fixed position at the top of the screen */
+    top: 60px;
+    left: calc(50% - 25ch);
+    right: 0;
+    z-index: 9999; /* Ensure flash messages are on top of other content */
+}
+
+
+.flash-message {
+    margin-bottom: 5px;
+}
+
+/* Style for the logout link */
+.logout-link {
+    position: relative;
+    top: 0;
+    bottom: 10px;
+    left: 10px;
+}
+
+.logout-link a {
+    text-decoration: none;
+    color: #007BFF; /* Adjust link color */
+}
+
+.logout-link a:hover {
+    text-decoration: underline;
+}
+

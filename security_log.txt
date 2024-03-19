@@ -1,0 +1,5 @@
+2023-10-04 11:49:38,576 - Failed login attempt for username: jleckie from IP: 127.0.0.1
+2023-10-04 11:49:52,118 - Failed login attempt for username: Ighnot from IP: 127.0.0.1
+2023-10-04 12:04:44,226 - Failed login attempt for username: Ighnot from IP: 127.0.0.1
+2023-10-04 12:04:55,768 - Failed login attempt for username: Ighnot from IP: 127.0.0.1
+2023-10-04 12:05:11,700 - Failed login attempt for username: Ighnot from IP: 127.0.0.1

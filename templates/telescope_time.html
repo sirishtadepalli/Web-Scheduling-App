@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Telescope Time Sign-Up</title>
+    <link rel="stylesheet" href="../static/styles.css">
+ </head>
+<body>
+    <h1 class="center-heading">Sign Up for Telescope Time</h1>
+    <p>Complete the form below to reserve telescope time. Be sure to include your academic
+        advisor's name at the end. We will be contacting them for the financial details and to
+        confirm your eligibility to use the scope.</p>
+    <h2>Reservation Details</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="date">Desired Start Date:</label>
+        <input type="date" id="date" name="date"><br><br>
+
+        <label for="advisor">Advisor's Name:</label>
+        <input type="text" id="advisor" name="advisor's name"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>Back to Home</h3>
+    <a href="/">Back to Home</a>
+
+<div class="page-image">
+        <img src="../static/images/image1.jpg" height="286" width="428" alt="Telescope">
+</div>
+
+<div class="logout-link">
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+</body>
+</html>
