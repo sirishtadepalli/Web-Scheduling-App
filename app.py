@@ -268,21 +268,6 @@ def telescope_time():
     return render_template('telescope_time.html')
 
 
-@app.route('/supercomputer_time')
-def supercomputer_time():
-    """
-    Render the supercomputer time request page.
-
-    Returns:
-        rendered template for supercomputer time page
-    """
-    # Check if the user is logged in, if not, redirect to the login page
-    if not session.get('logged_in'):
-        return redirect(url_for('login'))
-
-    return render_template('supercomputer_time.html')
-
-
 @app.route('/planetarium')
 def planetarium():
     """
